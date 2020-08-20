@@ -1,0 +1,10 @@
+<label class="error-message">{{ submitMessage }}</label>
+    <mat-card>
+            <mat-form-field>
+                <input matInput class="username" name="username" placeholder="User Name">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput class="password" name="password" placeholder="Password" type="password">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)='loginSubmit()'>Submit</button>
+    </mat-card>

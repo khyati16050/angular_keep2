@@ -1,0 +1,14 @@
+.note-create {
+    display: flex;
+    flex-direction: column;
+    
+}
+.mat-expansion-panel {
+
+    display: flex;
+    flex-direction: column;
+}
+.mat-panel-title {
+    color: black;
+
+}
