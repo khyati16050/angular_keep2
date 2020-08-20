@@ -1,29 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthenticationService {
-  private authUrl: string;
+
+  public users;
+
   constructor(private httpClient: HttpClient) {
-    this.authUrl = 'http://localhost:3000/auth/v1/';
   }
 
-  authenticateUser(data: any) {
-    return this.httpClient.post(this.authUrl, data);
+  authenticateUser(data) {
+    return this.httpClient.post('http://localhost:3000/auth/v1/',{username:data.username,password:data.password})
   }
 
-  setBearerToken(token: string) {
-    localStorage.setItem('bearerToken', token);
+  setBearerToken(token) {
+    this,localStorage.setItem('token', token);
   }
 
   getBearerToken() {
-    return localStorage.getItem('bearerToken');
+    return localStorage.getItem('token');
   }
 
-  isUserAuthenticated(token): Promise<boolean> {
-    return this.httpClient.post(this.authUrl + 'isAuthenticated', {}, {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
-    }).pipe(map(reponse => reponse['isAuthenticated'])).toPromise();
+  isUserAuthenticated(token): boolean{
+    
+    if (token) {
+      return true;
+    }
+    else {
+      return false
+    }
+
   }
 }
