@@ -1,24 +1,45 @@
-<!-- Label to display any error messages -->
 <label class="error-message">{{ errMessage }}</label>
-<!-- Expansion panel to add new notes -->
-<!-- <div> -->
-    <mat-expansion-panel class = "mat-expansion-panel">
-        <mat-expansion-panel-header>
-            <mat-panel-title class="mat-panel-title">Take a note</mat-panel-title>
-        </mat-expansion-panel-header>
-            <mat-form-field>
-                <input matInput name="title" [(ngModel)]="note.title" placeholder="Title">
-            </mat-form-field>
-            <mat-form-field>
-                <textarea matInput name="text" [(ngModel)]="note.text" placeholder="Text"></textarea>
-            </mat-form-field>
-                <button mat-raised-button color="primary">Done</button>
-    </mat-expansion-panel>
-<!-- </div> -->
-<!-- Load and display the collection of notes from server as Material Cards with card title set to note title and card content set to note text  -->
 
-   <mat-card class="note-create" *ngFor="let note of notes">
-        <mat-card-title>{{note.title}}</mat-card-title>
-        <mat-card-content>{{note.text}}
-        </mat-card-content>
-    </mat-card>
+<!-- To add notes -->
+<mat-expansion-panel class='add-note-panel'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Take a note
+      </mat-panel-title>
+  
+    </mat-expansion-panel-header>
+  
+    <!-- form fields for contacts -->
+    <div class="note-form">
+      <mat-form-field>
+        <input [(ngModel)]='note.title' matInput name = "title" matInput placeholder="title">
+      </mat-form-field>
+  
+  
+      <mat-form-field>
+        <textarea [(ngModel)]='note.text' matInput name = "text" matInput placeholder="text"></textarea>
+      </mat-form-field>
+  
+      
+      <button mat-fab color="primary" class="add-button" (click)='addNote()'>Done</button>
+  
+    </div>
+  
+</mat-expansion-panel>
+  
+  <section class="cards-panel"> 
+  <!-- Card layout begins here -->
+ <!-- Load and display the collection of notes from server as Material Cards with card title set to note title and card content set to note text  -->
+
+  <mat-card class="note-card" *ngFor='let notes of noteList'>
+    <mat-card-header>
+      <mat-card-title>{{notes.title}}</mat-card-title>
+    </mat-card-header>
+  <mat-card-content>
+    <p>
+        {{notes.text}
+    </p>
+  </mat-card-content>
+  
+  </mat-card>
+  </section>

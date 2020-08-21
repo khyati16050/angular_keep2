@@ -5,13 +5,14 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthenticationService {
-  private authUrl: string;
+  private url: string;
+
   constructor(private httpClient: HttpClient) {
-    
+    this.url = 'http://localhost:3000/auth/v1/';
   }
 
   authenticateUser(data: any) {
-    return this.httpClient.post(this.authUrl, data);
+    return this.httpClient.post(this.url, data);
   }
 
   setBearerToken(token: string) {
@@ -23,8 +24,9 @@ export class AuthenticationService {
   }
 
   isUserAuthenticated(token): Promise<boolean> {
-    return this.httpClient.post('http://localhost:3000/auth/v1/' + 'isAuthenticated', {}, {
+
+    return this.httpClient.post<any>('http://localhost:3000/auth/v1/isAuthenticated', {}, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
-    }).pipe(map(reponse => reponse['isAuthenticated'])).toPromise();
+    }).pipe(map(reponse => reponse['isAuthenticated'])).toPromise<any>();
   }
 }

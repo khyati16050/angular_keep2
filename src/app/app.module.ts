@@ -7,14 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule} from '@angular/material';
-import {MatButtonModule} from '@angular/material';
-import {MatListModule} from '@angular/material';
-import {MatExpansionModule} from '@angular/material';
-import {MatFormFieldModule} from '@angular/material';
-import {MatInputModule} from '@angular/material';
-import {MatSelectModule} from '@angular/material';
-import {MatCardModule} from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatExpansionModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCardModule, MatChipsModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -35,12 +28,15 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatSelectModule,
     MatCardModule,
+    MatChipsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
     MatListModule,
     FormsModule,
     HttpClientModule

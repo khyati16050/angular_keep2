@@ -5,10 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CanActivateRouteGuard } from './can-activate-route.guard';
 
 const routes: Routes = [
-  {
-    path: '', //default
-    component: DashboardComponent
-  },
+  
   {
     path: 'login',
     component: LoginComponent
@@ -17,6 +14,10 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [CanActivateRouteGuard]
+  },
+  {
+    path: '', //default
+    component: DashboardComponent
   }
 ];
 
