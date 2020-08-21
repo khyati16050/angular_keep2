@@ -10,6 +10,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatExpansionModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCardModule, MatChipsModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
    ],
-  providers: [ ],
+  providers: [AuthenticationService],
   bootstrap: [ AppComponent ]
 })
 
