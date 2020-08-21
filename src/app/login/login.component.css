@@ -1,0 +1,33 @@
+main{
+    height: 100%;
+    width: 100%;
+    padding: 1.5em;
+    color:darkblue;
+}
+
+form{
+    width: 50vw;
+    margin-top: 10vh;
+    border: 1px dotted black;
+    padding: 2.5em;
+}
+
+input{
+    height: 2em;
+    border-bottom: 2px solid;
+    width: 90%;
+    margin: 1em;
+}
+
+.button{
+
+    border: 1px solid;
+    margin-left: 30vw;
+    border-radius: 5px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}

@@ -26,8 +26,9 @@ export class LoginComponent implements OnInit{
   }
 
     loginSubmit() {
-      this.authService.authenticateUser({username: this.username.value, password: this.password.value}).subscribe(token => {
-        this.authService.setBearerToken(token);
+      this.authService.authenticateUser({username: this.username.value, password: this.password.value}).subscribe
+      (resp => {
+        this.authService.setBearerToken(resp['token']);
         this.routerService.routeToDashboard();
       },
       error => {
